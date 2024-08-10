@@ -10,12 +10,11 @@ SRCDIR := ./src
 OBJDIR := ./obj
 BINDIR := ./bin
 INCLUDE := -I/opt/homebrew/include/ -I/usr/include/ -I/usr/local/include/ 
-INCLUDE := $(INCLUDE)
 INCLUDE := $(INCLUDE) -I$(VULKAN_SDK)/include -I$(VULKAN_SDK)/lib
-
 DEFINES := 
 TARGET := ./bin/VulApp
-LDFLAGS := -L/usr/lib -L/usr/local/lib -L$(VULKAN_SDK)/lib -lvulkan
+OPENGLLIB := -L/opt/homebrew/Cellar/glfw/3.4/lib
+LDFLAGS   := -L/usr/lib -L/usr/local/lib $(OPENGLLIB) -L$(VULKAN_SDK)/lib -lglfw.3.4 -lvulkan
 FRAMEWORKS :=
 
 PCH_OUT := 
